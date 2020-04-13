@@ -14,10 +14,15 @@ app.use(layouts);
 //set up static folder
 app.use(express.static('static'));
 
+//create home page route
+app.get('/', (req,res) => {
+	res.render('home');
+});
+
 //create a wildcard (catch-all)
 app.get('*', (req,res) => {
 	res.render('error')
 });
 
-
+//listen point
 app.listen(3000);
