@@ -14,6 +14,9 @@ app.use(layouts);
 //set up static folder
 app.use(express.static('static'));
 
+//controllers
+app.use('/auth', require('./controllers/auth'));
+
 //create home page route
 app.get('/', (req,res) => {
 	res.render('home');
