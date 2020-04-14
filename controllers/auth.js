@@ -6,6 +6,12 @@ router.get('/login', (req,res) => {
 	res.render('auth/login')
 });
 
+//POST /auth/login - this is where login form pstst to
+router.post('/login', (req,res) => {
+	console.log('DATA', req.body)
+	res.send('Hello there')
+})
+
 router.get('/signup', (req,res) => {
 	res.render('auth/signup')
 });

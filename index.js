@@ -14,6 +14,9 @@ app.use(layouts);
 //set up static folder
 app.use(express.static('static'));
 
+//decrypt varibles from post-routes 
+app.use(express.urlencoded({extended:false}))
+
 //controllers
 app.use('/auth', require('./controllers/auth'));
 
