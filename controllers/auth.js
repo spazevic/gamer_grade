@@ -13,8 +13,18 @@ router.post('/login', (req,res) => {
 })
 
 router.get('/signup', (req,res) => {
-	res.render('auth/signup')
+	res.render('auth/signup', {data: {}})
 });
+
+router.post('/signup', (req,res) => {
+	console.log('DATA', req.body)
+	if (req.body.password != req.body.password_verify) {
+	//send a message on why things didn't work
+	req.flash('error', 'Passwords do not match')
+		res.render('auth/signup', {data: req.body, alerts: req.flash})
+	}
+	res.send('goo job')
+})
 
 //Export (allow me to include this in another page)
 module.exports = router
