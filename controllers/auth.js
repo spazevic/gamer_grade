@@ -51,6 +51,8 @@ router.post('/signup', (req,res) => {
 						req.flash('error', e.message)
 					}
 				})
+				res.render('auth/signup', {data: req.body, alerts: req.flash()})
+				
 			} else {
 				req.flash('error', 'Server error')
 				//generic flash message for any other issue

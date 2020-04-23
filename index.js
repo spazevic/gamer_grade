@@ -1,3 +1,4 @@
+require('dotenv').config()
 //require modules
 let express = require('express');
 let layouts = require('express-ejs-layouts');
@@ -21,7 +22,7 @@ app.use(express.urlencoded({extended:false}))
 
 //sessions
 app.use(session({
-	secret: 'any string is fine',
+	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: true
 }))
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
 
 //controllers
 app.use('/auth', require('./controllers/auth'));
+app.use('/profile', require('./controllers/profile'));
 
 //create home page route
 app.get('/', (req,res) => {

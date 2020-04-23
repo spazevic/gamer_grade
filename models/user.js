@@ -39,14 +39,24 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate:  pendingUser => {
         //hash the password
-        let hashedPassword = bcrypt.hasSync(pendingUser.password, 12)
+        let hashedPassword = bcrypt.hashSync(pendingUser.password, 12)
         //reassign the hashed password (overwrite the plain text password)
         pendingUser.password = hashedPassword
       }
     }
   });
+
   user.associate = function(models) {
     // associations can be defined here
   };
+
+user.prototype.validPassword = function(typedInPassword) {
+  //determine if password typed in hashes to same thing as existing hash
+  let correctPassword = bcrypt.compareSync(typedInPassword, this.password)
+  //returns boolean in password matches existing pasword
+  return correctPassword
+
+}
+
   return user;
 };
