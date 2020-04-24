@@ -120,3 +120,30 @@ Include the following .env varibles:
 ```sh
 nodemon or node index.js
 ```
+### 10. Delete the old origin that points to the boilerplate repo ###
+
+Currently if we run this command
+
+```sh
+git remote -v 
+```
+
+It will show origin as being hooked up to boilerpalte repo. Need fresh repo still. Delete origin remote.
+
+```sh
+git remote remove origin
+```
+
+### 11. Create an empty git repo ###
+
+Via the Github website follow directions to make new repo
+
+```sh
+git init
+git add .
+git commit -m 'First commit'
+git remote add origin <new_repo link>
+git push origin master
+```
+
+**GGs**
