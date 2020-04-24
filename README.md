@@ -64,3 +64,8 @@ This is a boilerplate for an express app with local user authentication. It exis
 ```sh
 git clone <repo_link> <new_name>
 ```
+**For Example**
+
+```sh
+git clone git@github.com/spazevic/Auth_Boiler.git shiny-new-project
+```
