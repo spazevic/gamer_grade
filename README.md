@@ -90,3 +90,33 @@ Remove the defaulty stuff. For example:
 createdb <new_db_name>
 ```
 
+### 5. Alter Sequelize Config File ###
+
+In `config/config.json`, update the database name to the one created in step 4. Check other settings, username, password, and dialect.
+
+### 6. Check user model for relevence to new project's needs ###
+
+For example, if new project doesn't need birthday field, delete from user model and user migration files
+
+### 7. Run the sequelize migrations ###
+```sh
+sequelize db:migrate
+```
+
+### 8. Create a file for the enviornment varibles
+
+```sh
+touch .env
+```
+
+Or create in text editor
+
+Include the following .env varibles:
+
+* SESSION_SECRET - the key for the sesion to use
+
+### 9. Run the server and make sure it works ###
+
+```sh
+nodemon or node index.js
+```
