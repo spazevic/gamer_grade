@@ -12,3 +12,15 @@ This is a boilerplate for an express app with local user authentication. It exis
 * EJS templating and EJS layouts
 * Sequelize User model
 * Materialize styling - with nav and footer
+
+##Included Models
+
+**User Model**
+
+| Column | Type | Notes |
+| --------- | ---------- | -----------------------------|
+| id | Integer | Serial Primary Key
+
+##Included Routes
+
+##Directions For Use
