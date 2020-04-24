@@ -33,11 +33,19 @@ This is a boilerplate for an express app with local user authentication. It exis
 
 ## Included Routes
 
-**Routes in Index**
+**Routes in index.js (main)**
 
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------- |
-| GET | '/' | Home Page |
-| GET | '*' | Catch for all 404s | 
+| GET | `/` | Home Page |
+| GET | `*` | Catch for all 404s | 
+
+**Routes in controllers/auth.js**
+
+| Method | Path | Purpose |
+| ------ | -------------- | -------------------- |
+| GET | '`/auth/login` | Login Form Page |
+| POST | `/auth/login` | Process Login Form Data |
+| GET | `/auth/login` | 
 
 ## Directions For Use
