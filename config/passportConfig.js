@@ -36,7 +36,7 @@ passport.use(new LocalStrategy({
 
 }, (email, password, done) => {
 	//Try looking uo the user by their email
-	db.userfindOne({
+	db.user.findOne({
 		where: {email: email }
 	})
 	.then(foundUser => {

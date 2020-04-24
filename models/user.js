@@ -53,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
 user.prototype.validPassword = function(typedInPassword) {
   //determine if password typed in hashes to same thing as existing hash
   let correctPassword = bcrypt.compareSync(typedInPassword, this.password)
-  //returns boolean in password matches existing pasword
+  //returns boolean in password matches existing password
   return correctPassword
 
 }

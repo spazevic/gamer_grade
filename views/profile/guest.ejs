@@ -1,0 +1,10 @@
+<h1><%= user.firstName %> Visting <%= userProfile.firstName%>'s page</h1>
+
+
+<div>
+		<p><strong>Name:</strong><%=userProfile.firstName%> <%=userProfile.lastName%></p>
+		<p><strong>Birthday:</strong> <%= moment(userProfile.birthday).format('MMM Do YYYY') %></p>
+		<p>
+			<%=userProfile.bio%>
+		</p>
+	</div>

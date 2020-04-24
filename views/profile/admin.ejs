@@ -1,1 +1,29 @@
-<h1> Admin Page </h1>
+<h1> <%=user.firstName %>'s Profile</h1>
+<h2> You are an admin</h2>
+
+<div class="row">
+	<div class="col s4">
+		<img src = "<%=user.pic%>" alt="profile pic">
+	</div>
+	<div>
+		<p><strong>Name:</strong><%=user.firstName%> <%=user.lastName%></p>
+		<p><strong>Birthday:</strong> <%= moment(user.birthday).format('MMM Do YYYY') %></p>
+		<p>
+			<%=user.bio%>
+		</p>
+	</div>
+	<div class = "col s4">
+		<h3>View users profiles</h3>
+		<% users.forEach(u => { %>
+		<div>
+			<a href="/profile/guest/<%=u.id%>">
+				<%=u.firstName%>
+				<%if ( user.id == u.id ) {%>
+					(This is you)
+				<% } %>
+			</a>
+		</div>
+		<% }) %>
+
+	</div>
+</div>

@@ -7,3 +7,13 @@
 		</div>
 	</div>
 <% } %>
+
+<% if (alerts && alerts.success) { %>
+	<div class="card green lighten-3" style="margin-top: 0">
+		<div class="card-content">
+			<% alerts.success.forEach(s => { %>
+			<p>Success: <%= s %> </p>
+			<%	})%>
+		</div>
+	</div>
+<% } %>
