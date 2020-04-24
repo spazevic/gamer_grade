@@ -19,7 +19,17 @@ This is a boilerplate for an express app with local user authentication. It exis
 
 | Column | Type | Notes |
 | --------- | ---------- | -----------------------------|
-| id | Integer | Serial Primary Key
+| id | Integer | Serial Primary Key |
+| firstName | String | Required Length > 1 |
+| lastName | String | - |
+| email | String | Unique Login |
+| password | String | Hash |
+| birthday | Date | - |
+| admin | Boolean | Defaulted to False |
+| pic | String | - |
+| bio | Text | - |
+| createdAt | Date | Automatically added to Sequelize |
+| updatedAt | Date | Automatically added to Sequelize |
 
 ## Included Routes
 
