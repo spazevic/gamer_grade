@@ -13,7 +13,7 @@ This is a boilerplate for an express app with local user authentication. It exis
 * Sequelize User model
 * Materialize styling - with nav and footer
 
-##Included Models
+## Included Models
 
 **User Model**
 
@@ -21,6 +21,6 @@ This is a boilerplate for an express app with local user authentication. It exis
 | --------- | ---------- | -----------------------------|
 | id | Integer | Serial Primary Key
 
-##Included Routes
+## Included Routes
 
-##Directions For Use
+## Directions For Use
