@@ -33,4 +33,11 @@ This is a boilerplate for an express app with local user authentication. It exis
 
 ## Included Routes
 
+**Routes in Index**
+
+| Method | Path | Purpose |
+| ------ | -------------- | -------------------- |
+| GET | '/' | Home Page |
+| GET | '*' | Catch for all 404s | 
+
 ## Directions For Use
