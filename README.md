@@ -44,8 +44,17 @@ This is a boilerplate for an express app with local user authentication. It exis
 
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------- |
-| GET | '`/auth/login` | Login Form Page |
+| GET | `/auth/login` | Login Form Page |
 | POST | `/auth/login` | Process Login Form Data |
-| GET | `/auth/login` | 
+| GET | `/auth/signup` | Signup Form Page |
+| POST | `/auth/signup` | Process Singup Form Data |
+| GET | `/auth/logout` | Remove User From Session |
+
+**Routes in controllers/profile.js**
+| Method | Path | Purpose |
+| ------ | -------------- | -------------------- |
+| GET | `/profile/user` | User Profile Page |
+| GET | `/profile/admin` | Admin Dashboard Page |
+| GET | `/profile/guest/:id` | View other user dashboard |
 
 ## Directions For Use
