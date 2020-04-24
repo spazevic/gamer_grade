@@ -4,11 +4,11 @@ This is a boilerplate for an express app with local user authentication. It exis
 
 ## What it includes
 
-*Local Auth (email and Password)
-*Passport amd passport-local
-*Sessions for saving user info and displaying flash messages
-*Settings for PostgreSQL and Sequelize
-*Hashed passwords
-*EJS templating and EJS layouts
-*Sequelize User model
-*Materialize styling - with nav and footer
+* Local Auth (email and Password)
+* Passport amd passport-local
+* Sessions for saving user info and displaying flash messages
+* Settings for PostgreSQL and Sequelize
+* Hashed passwords
+* EJS templating and EJS layouts
+* Sequelize User model
+* Materialize styling - with nav and footer
