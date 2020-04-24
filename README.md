@@ -69,3 +69,8 @@ git clone <repo_link> <new_name>
 ```sh
 git clone git@github.com/spazevic/Auth_Boiler.git shiny-new-project
 ```
+### 2. Install modules from package.json ###
+
+```sh
+npm
+```
