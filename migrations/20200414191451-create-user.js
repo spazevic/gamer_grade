@@ -25,7 +25,8 @@ module.exports = {
         type: Sequelize.TEXT
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+         allowNull: false
       },
       birthday: {
         type: Sequelize.DATE
@@ -37,9 +38,6 @@ module.exports = {
       pic: {
         type: Sequelize.STRING,
         defaultValue: 'http://placekitten.com/200/200'
-      },
-      zipcode: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

@@ -1,0 +1,11 @@
+<h1>TeeHee</h1>
+<h2>this game</h2>
+<%=game.name%>
+<%=user.firstName%>
+
+<form method="POST" action="#">
+	<input type="hidden" name="gameId" value="<%=game.id%>">
+	<input type="hidden" name="userId" value="<%=user.id%>">
+	<input type="number" name="rating">
+	<input type="submit" value="sub that mit">
+</form>

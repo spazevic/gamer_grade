@@ -1,0 +1,19 @@
+<p>hi</p>
+<form method="GET" action="/games/search">
+	<input type="text" name="name">
+	<input type="submit" value="back to search">
+</form>
+
+<form method="POST" action="/games/search">
+	<input type="text" name="name">
+	<input type="submit" value="search more">
+</form>
+
+<% gameData.forEach(d => { %>
+	<form method="POST" action="/games/choose">
+		<input type="hidden" name="name" value="<%=d.name%>">
+		<button type="submit"><%= d.name %> </button>
+	</form>
+	<p><%=d.summary%></p>
+
+<% }) %>

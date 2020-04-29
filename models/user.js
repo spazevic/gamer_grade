@@ -30,11 +30,18 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     bio: DataTypes.TEXT,
-    username: DataTypes.STRING,
+    username: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1, 255],
+          msg: 'Need username bruh'
+        }
+      }
+    },
     birthday: DataTypes.DATE,
     admin: DataTypes.BOOLEAN,
-    pic: DataTypes.STRING,
-    zipcode: DataTypes.INTEGER
+    pic: DataTypes.STRING
   }, {
     hooks: {
       beforeCreate:  pendingUser => {
@@ -48,6 +55,7 @@ module.exports = (sequelize, DataTypes) => {
 
   user.associate = function(models) {
     // associations can be defined here
+    models.user.hasMany(models.rating)
   };
 
 user.prototype.validPassword = function(typedInPassword) {

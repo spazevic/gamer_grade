@@ -47,11 +47,13 @@ app.use((req, res, next) => {
 //controllers
 app.use('/auth', require('./controllers/auth'));
 app.use('/profile', require('./controllers/profile'));
+app.use('/games', require('./controllers/games'));
 
 //create home page route
 app.get('/', (req,res) => {
 	res.render('home');
 });
+
 
 //create a wildcard (catch-all)
 app.get('*', (req,res) => {

@@ -31,4 +31,45 @@ router.get('/admin', adminLogin, (req,res) => {
 		res.render('error')
 	})
 })
+
+router.get('/reviews', (req,res) => {
+	db.rating.findAll({
+		include: [db.game]
+	})
+	.then(ratings => {
+		res.render('profile/reviews', {ratings})
+	})
+	.catch(err => {
+		res.render('error')
+	})
+	
+})
+
+router.get('/create/:id', (req,res) => {
+	db.game.findOne({
+		where: {id: req.params.id }
+	})
+	.then(game => {
+		res.render('profile/create', {game})
+	})
+	.catch(err => {
+		res.render('error')
+	})
+})
+
+router.post('/create/:id', (req,res) => {
+	db.rating.create({
+		userId: req.body.userId,
+		rating: req.body.rating,
+		gameId: req.body.gameId
+
+	})
+	.then(rating => {
+		res.send('ooh rah')
+	})
+	.catch(err => {
+		res.render('error')
+	})
+})
+
 module.exports = router
