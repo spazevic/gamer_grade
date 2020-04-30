@@ -1,6 +1,6 @@
-# Node Auth Boilerplate 
+# Gamer Grade  
 
-This is a boilerplate for an express app with local user authentication. It exists so I have a customized boilerplate so I can use this to start my projects. 
+This is a website that allows users to rate games and see the cumlitive rating of those games on the website.
 
 ## What it includes
 
