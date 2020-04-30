@@ -60,7 +60,6 @@ app.get('/', (req,res) => {
 		include: [db.rating]
 	})
 	.then(games=> {
-		console.log(games[0].ratings)
 		res.render('home', {games});
 	})
 	
