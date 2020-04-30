@@ -1,0 +1,17 @@
+<h1>heehee</h1>
+
+<form action="/profile/edit/<%=rating.id%>?_method=PUT" method="POST">
+	<input type="hidden" name="gameId" value="<%=rating.gameId%>">
+	<input type="hidden" name="userId" value="<%=rating.userId%>">
+	<input type="number" name="rating" value="<%=rating.rating%>">
+	<input type="submit" value="sub that mit">
+</form>
+
+<h2>DANGER DANGER</h2>
+
+<form action="/profile/delete/<%=rating.id%>?_method=DELETE" method="POST">
+
+<input type="submit" value ="DELETE">
+
+
+</form>

@@ -1,0 +1,21 @@
+<h1><%=game.name%></h1>
+<img src="<%=game.cover%>">
+
+
+<%let rating = 0%>
+<%let count= 0%>
+<%game.ratings.forEach(r => { %>
+<%rating += r.rating %>
+<%count++%>
+<% }) %>
+<div>
+<h3><%=rating/count%></h3>
+<p>Number of Reviews: <%=count %></p>
+</div>
+<%= game.summary%>
+
+
+<form method="GET" action="/profile/create/<%=game.id%>">
+	
+	<input type="submit" value="create review">
+</form>

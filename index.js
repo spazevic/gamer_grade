@@ -4,6 +4,8 @@ let express = require('express');
 let layouts = require('express-ejs-layouts');
 let flash = require('connect-flash')
 let session = require('express-session')
+let methodOverride = require('method-override')
+let db = require('./models')
 
 //create app instance
 let app = express();
@@ -34,6 +36,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+//install methodoverride
+app.use(methodOverride('_method'))
+
 //set up connect flash (depends on session)
 app.use(flash())
 
@@ -51,8 +56,19 @@ app.use('/games', require('./controllers/games'));
 
 //create home page route
 app.get('/', (req,res) => {
-	res.render('home');
+	db.game.findAll( {
+		include: [db.rating]
+	})
+	.then(games=> {
+		console.log(games[0].ratings)
+		res.render('home', {games});
+	})
+	
 });
+
+app.get('/about', (req,res) => {
+	res.render('about')
+})
 
 
 //create a wildcard (catch-all)

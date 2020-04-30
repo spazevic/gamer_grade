@@ -1,5 +1,21 @@
 <h1>hi list</h1>
 
+<h4>Can't find your game? Search here for more and make your own review</h4>
+ <a href="/games/search">Search Games</a>
+
+
+
 <% games.forEach(g => { %>
-	<p><%=g.name %></p>
+	<%let rating = 0%>
+	<%let count= 0%>
+	<form method="GET" action="/profile/create/<%=g.id%>">
+	<a href="/games/<%=g.id%>"><%=g.name %></a>
+	<% g.ratings.forEach(r => { %>
+		<%count++%>
+		<%rating+= r.rating%>
+	<%})%>
+	<%=rating/count%>
+	<div></div>
+	<input type="submit" value="create review">
+</form>
 	<% }) %>

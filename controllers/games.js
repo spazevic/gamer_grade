@@ -65,7 +65,7 @@ router.post('/choose', (req,res) => {
 	})
   .then(response => {
   	let gameData = response.data
-    console.log(response.data[0]);
+ 
    
 
     
@@ -80,7 +80,7 @@ router.post('/choose', (req,res) => {
 	  })
     	.then(date => {
     		let dateData = date.data
-    		console.log(dateData[0].human)
+    		
 		    axios({
 			  url: "https://api-v3.igdb.com/covers",
 			  method: 'POST',
@@ -105,7 +105,7 @@ router.post('/choose', (req,res) => {
   		}); 
   })
   .catch(err => {
-      console.error(err);
+   console.error(err);
   });
 });
 
@@ -117,16 +117,47 @@ router.post('/newGame',(req,res) => {
 		release: req.body.release
 	})
 	.then(() => {
-		res.render('games/list')
+		res.redirect('./list')
 	})
+	.catch(err => {
+  	console.error(err);
+	}); 
 	
 })
 
 router.get('/list', (req,res) => {
-	db.game.findAll()
+	db.game.findAll({
+		include: [db.rating]
+	})
 	.then(games => {
 		res.render('games/list', {games})
 	})
+	
+})
+
+router.get('/all', (req,res) => {
+	db.game.findAll({
+		include: [db.rating]
+	})
+	.then(games => {
+
+		res.render('games/all', {games})
+	})
+	
+})
+
+router.get('/:id', (req,res) => {
+	db.game.findOne({
+		where: {id : req.params.id},
+		include: [db.rating]
+	})
+	.then(game => {
+		console.log(game.ratings[0])
+		res.render('games/gamePage', {game})
+	})
+	.catch(err => {
+  	console.error(err);
+	});		 
 	
 })
 

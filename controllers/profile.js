@@ -22,6 +22,16 @@ router.get('/guest/:id', (req,res) => {
 	})
 })
 
+router.get('/guestReview/:id', (req,res) => {
+	db.user.findByPk(req.params.id)
+	.then(userProfile => {
+		res.render('profile/guestReview', {moment, userProfile})
+	})
+	.catch(err => {
+		res.render('error')
+	})
+})
+
 router.get('/admin', adminLogin, (req,res) => {
 	db.user.findAll()
 	.then(users => {
@@ -57,17 +67,67 @@ router.get('/create/:id', (req,res) => {
 	})
 })
 
+
+router.get('/edit/:id', (req,res) => {
+	db.rating.findOne({
+		where: { id: req.params.id}
+	})
+	.then(rating => {
+		res.render('profile/edit', {rating})
+	})
+	.catch(err => {
+  	res.render('error', err)
+  	})
+})
+
+router.put('/edit/:id', (req,res) => {
+	db.rating.update(
+		{rating: req.body.rating},
+		{where: { id: req.params.id}
+		}
+	)
+	.then(rating => {
+		res.redirect('/profile/reviews')
+	})
+	.catch(err => {
+  	res.render('error', err)
+  	})
+})
+
 router.post('/create/:id', (req,res) => {
 	db.rating.create({
 		userId: req.body.userId,
 		rating: req.body.rating,
 		gameId: req.body.gameId
-
 	})
 	.then(rating => {
-		res.send('ooh rah')
+		res.redirect('../reviews')
 	})
 	.catch(err => {
+		res.render('error')
+	})
+})
+
+
+router.delete('/delete/:id', (req,res) => {
+	db.rating.destroy({
+		where: {id: req.params.id}
+	})
+	.then(() => {
+		db.rating.destroy({
+		where: {id: req.params.id}
+		})
+		.then(() => {
+			res.redirect('/')
+		})
+		.catch(err => {
+			console.log(err)
+			res.render('error')
+		})
+
+	})
+	.catch(err => {
+		console.log(err)
 		res.render('error')
 	})
 })

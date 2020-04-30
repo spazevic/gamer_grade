@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background-color: bisque;
+	background-color: #af3340;
 }
 
 body {
@@ -16,9 +16,30 @@ main {
     flex: 1 0 auto;
 }
 
-/*img {
-	height: 200px;
-	width: 200px;
+img {
+	height: 150px;
+
 
 }
-*/
+
+a:link {
+	color:white;
+}
+
+a:visited {
+	color:white;
+}
+
+a:hover {
+	color: blue;
+}
+
+.rating {
+	color: #0090f0;
+	font-size: 30px
+}
+
+.gamebox {
+	
+}
+

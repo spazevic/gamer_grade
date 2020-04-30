@@ -1,9 +1,23 @@
 <h1>Gamer Grade</h1>
 <h2>The best place to find the coolest games that you can be sure will be worth your time and money</h2>
 
-<h3>Top 5 Games</h3>
+<h3>Top Games</h3>
 
-<p>At Gamer Grade, we are commited to having the best source of user reviews for the world of video games. Our goal is to make it so gamers can here from fellow gamers whether or not they enjoy games, and not need to rely on video game journalists who are on payroll to make as many reviews as possible.</p>
+<%games.forEach(g => { %>
+	<%let rating = 0%>
+	<%let count= 0%>
+	<% g.ratings.forEach(r => { %>
+		<%count++%>
+		<%rating+= r.rating%>
+	<%})%>
+	<% if (rating/count > 9) { %>
+	<div>
+		<a href="/games/<%=g.id%>"><%=g.name%></a>
+	</div>
+	<%=rating/count%>
+	<% } %>
+<% }) %>
 
-<img src="https://placekitten.com/200/200">
+
+
 

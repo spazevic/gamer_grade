@@ -1,14 +1,13 @@
 <nav>
-  <div class="nav-wrapper indigo lighten-3">
-    <a href="#" class="brand-logo">SP</a>
+  <div class="nav-wrapper green darken-3">
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a href="/">Home</a></li>
-      <li><a href="/games/search">Search Games</a></li>
       <% if (user) { %>
       <li><a href="/profile/user">Profile</a></li>
       <li><a href="/auth/logout">Logout</a></li>
-      <li><a href="/profile/reviews">My Reviews</a>
+      <li><a href="/profile/reviews">My Reviews</a></li>
+      <li><a href="/games/all">Games List</a></li>
       <% if (user.admin) {  %>
         <li><a href="/profile/admin">Admin Page</a></li>
       <% }%>
@@ -22,11 +21,11 @@
 
  <ul class="sidenav" id="mobile-demo">
   <li><a href="/">Home</a></li>
-  <li><a href="/games/search">Search Games</a></li>
   <% if (user) { %>
     <li><a href="/profile/user">Profile</a></li>
     <li><a href="/auth/logout">Logout</a></li>
-    <li><a href="/profile/reviews">My Reviews</a>
+    <li><a href="/profile/reviews">My Reviews</a></li>
+    <li><a href="/games/all">Games List</a></li>
       <% if (user.admin) {  %>
         <li><a href="/profile/admin">Admin Page</a></li>
       <% }%>
