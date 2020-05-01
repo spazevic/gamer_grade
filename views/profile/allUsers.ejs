@@ -1,0 +1,8 @@
+<h1>Click a user to see their reviews!</h1>
+
+<%users.forEach( u=> { %>
+	<a href="/profile/guest/<%=u.id%>"><h4><%=u.username%></h4></a>
+	<%if (u.id == user.id)  { %>
+		(This is you)
+	<% } %>
+<% })%>

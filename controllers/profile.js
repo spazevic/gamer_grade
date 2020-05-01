@@ -22,6 +22,28 @@ router.get('/guest/:id', (req,res) => {
 	})
 })
 
+
+router.get('/guestReview/:id', (req,res) => {
+	db.user.findByPk(req.params.id)
+	.then(userProfile => {
+	
+		db.rating.findAll({
+			include: [db.game]
+		})
+		.then(ratings=> {
+			res.render('profile/guestReviews', {ratings, userProfile})
+		})
+		.catch(err => {
+			res.render('error')
+		})
+
+	})	
+	.catch(err => {
+		res.render('error')
+	})
+})	
+
+
 router.get('/admin', adminLogin, (req,res) => {
 	db.user.findAll()
 	.then(users => {
@@ -84,6 +106,35 @@ router.put('/edit/:id', (req,res) => {
   	})
 })
 
+router.get('/editUser/:id', (req,res) => {
+	db.user.findOne({
+		where: { id: req.params.id}
+	})
+	.then(user => {
+		res.render('profile/editUser', {user})
+	})
+	.catch(err => {
+  	res.render('error', err)
+  	})
+})
+
+router.put('/editUser/:id', (req,res) => {
+	db.user.update(
+		{username: req.body.username,
+			birthday: req.body.birthday,
+			pic: req.body.pic,
+			bio: req.body.bio},
+		{where: { id: req.params.id}
+		}
+	)
+	.then(rating => {
+		res.redirect('/profile/user')
+	})
+	.catch(err => {
+  	res.render('error', err)
+  	})
+})
+
 router.post('/create/:id', (req,res) => {
 	db.rating.create({
 		userId: req.body.userId,
@@ -118,6 +169,16 @@ router.delete('/delete/:id', (req,res) => {
 	})
 	.catch(err => {
 		console.log(err)
+		res.render('error')
+	})
+})
+
+router.get('/allUsers', (req,res) => {
+	db.user.findAll()
+	.then(users=> {
+		res.render('profile/allUsers', {users})
+	})
+	.catch(err => {
 		res.render('error')
 	})
 })

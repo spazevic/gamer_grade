@@ -1,0 +1,30 @@
+<h1>Edit Profile</h1>
+
+<div class="row">
+    <form class="col s12" action="/profile/editUser/<%=user.id%>?_method=PUT" method="POST">
+        
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="username" name="username" type="text" value="<%= user.username %>">
+                <label for="username">Display Username</label>
+            </div>
+            <div class="input-field col s4">
+                <input type="text" id="birthday" name="birthday" class="datepicker" value="<%= user.birthday %>">
+                <label for="birthday">Birthday</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="pic" type="url" name="pic" value="<%= user.pic %>">
+                <label for="pic">Picture URL</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="bio" name="bio" class="materialize-textarea" value="<%= user.bio%>"></textarea>
+                <label for="bio">Bio</label>
+            </div>
+        </div>
+        <input type="submit" value="submit">
+    </form>
+</div>

@@ -77,24 +77,28 @@ This is a website that allows users to rate games and see the cumlitive rating o
 | GET | `/profile/user` | User Profile Page |
 | GET | `/profile/admin` | Admin Dashboard Page |
 | GET | `/profile/guest/:id` | View other user dashboard |
-| GET | `/reviews'` | View your game that have been rated |
-| GET | `/create/:id` | Get page to rate a game |
-| GET | `/edit/:id` | Get page to edit your rating  |
-| POST | `/create/:id` | Post route for rating a game|
-| PUT | `/edit/:id` | Change your rating of a game |
-| DELETE | `/edit/:id` | Delete your rating of a game |
+| GET | `/profile/reviews'` | View your game that have been rated |
+| GET | `/profile/create/:id` | Get page to rate a game |
+| GET | `/profile/edit/:id` | Get page to edit your rating |
+| GET | `/profile/editUser/:id` | Get page to edit your profile |
+| GET | `/profile/allUsers` | Get page view list of users|
+| GET | `/profile/guestReview/:id` | Get page a chosen users reviews|
+| POST | `/profile/create/:id` | Post route for rating a game|
+| PUT | `/profile/edit/:id` | Change your rating of a game |
+| PUT | `/profile/editUser/:id` | Change your profile info |
+| DELETE | `/profile/edit/:id` | Delete your rating of a game |
 
 
 **Routes in controllers/games.js**
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------- |
-| GET | `/search` | Open search page to look for game via API |
-| POST | `/search` | Route to search API for game |
-| POST | `/choose` | Get data from API on chosen game|
-| POST | `/newGame` | Post API data to game model |
-| GET | `/all` | List of all reviewed games |
-| GET | `/list` | List of games that can be reviewed |
-| GET | `/:id` | Info on chosen game stored in Model |
+| GET | `/games/search` | Open search page to look for game via API |
+| POST | `/games/search` | Route to search API for game |
+| POST | `/games/choose` | Get data from API on chosen game|
+| POST | `/games/newGame` | Post API data to game model |
+| GET | `/games/all` | List of all reviewed games |
+| GET | `/games/list` | List of games that can be reviewed |
+| GET | `/games/:id` | Info on chosen game stored in Model |
 
 ## Directions For Use
 

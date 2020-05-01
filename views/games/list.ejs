@@ -9,7 +9,11 @@
 		<%count++%>
 		<%rating+= r.rating%>
 	<%})%>
-	<p class="rating"><%=rating/count%></p>
+	<%if (isNaN(rating/count)) { %>
+		<p class="rating">No Ratings Yet</p>
+	<%} else { %>
+		<p class="rating"><%=rating/count%></p>
+	<% } %>
 	<div></div>
 	<input type="submit" value="create review" class="btn-small">
 </form>

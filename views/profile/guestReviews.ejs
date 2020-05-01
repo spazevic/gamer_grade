@@ -1,0 +1,11 @@
+<h1>Viewing <%=userProfile.username%>'s Reviews</h1>
+
+
+<%ratings.forEach(r => { %>
+	<% if (r.userId == userProfile.id) { %>
+		<div>
+		<h4><a href="/games/<%=r.game.id%>"><%=r.game.name%></a></h4>
+		<p class = "rating"><%= r.rating%></p>
+	</div>
+	<% } %>	
+<% })%>
