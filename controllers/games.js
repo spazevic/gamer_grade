@@ -46,9 +46,6 @@ router.post('/search', (req,res) => {
   });
 });
 
-router.get('/choose', (req,res) => {
-	res.render('games/choose');
-})
 
 router.post('/choose', (req,res) => {
 	axios({

@@ -1,6 +1,6 @@
 # Gamer Grade  
 
-This is a website that allows users to rate games and see the cumlitive rating of those games on the website.
+This is a website that allows users to rate games and see the cumlitive rating of those games on the website. It access the IGDB API for video game information. From that the user can search for a game and give a rating of that game. They can see the list of games that have been reviewed, and can add more games from the API if they want. The list of games shows the average score given to them across all reviews on the website. If the user wants, they can change their rating or delte it entirely.
 
 ## What it includes
 
@@ -12,6 +12,7 @@ This is a website that allows users to rate games and see the cumlitive rating o
 * EJS templating and EJS layouts
 * Sequelize User model
 * Materialize styling - with nav and footer
+* Axios for calling API
 
 ## Included Models
 
@@ -31,6 +32,25 @@ This is a website that allows users to rate games and see the cumlitive rating o
 | createdAt | Date | Automatically added to Sequelize |
 | updatedAt | Date | Automatically added to Sequelize |
 
+**Game Model**
+
+| Column | Type | Notes |
+| --------- | ---------- | -----------------------------|
+| id | Integer | Serial Primary Key |
+| name | String | Taken from API |
+| summary | Text | Taken from API |
+| cover | String | Cover art for game |
+| release | String | Release Date as String|
+
+**Rating Model**
+
+| Column | Type | Notes |
+| --------- | ---------- | -----------------------------|
+| id | Integer | Serial Primary Key |
+| rating | Integer | Score given to game |
+| userId | Integer | Id of user who gave rating |
+| gameId | Integer | Id of game being rated |
+
 ## Included Routes
 
 **Routes in index.js (main)**
@@ -38,7 +58,8 @@ This is a website that allows users to rate games and see the cumlitive rating o
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------- |
 | GET | `/` | Home Page |
-| GET | `*` | Catch for all 404s | 
+| GET | `*` | Catch for all 404s |
+| GET | `/about` | About Page | 
 
 **Routes in controllers/auth.js**
 
@@ -56,94 +77,37 @@ This is a website that allows users to rate games and see the cumlitive rating o
 | GET | `/profile/user` | User Profile Page |
 | GET | `/profile/admin` | Admin Dashboard Page |
 | GET | `/profile/guest/:id` | View other user dashboard |
+| GET | `/reviews'` | View your game that have been rated |
+| GET | `/create/:id` | Get page to rate a game |
+| GET | `/edit/:id` | Get page to edit your rating  |
+| POST | `/create/:id` | Post route for rating a game|
+| PUT | `/edit/:id` | Change your rating of a game |
+| DELETE | `/edit/:id` | Delete your rating of a game |
+
+
+**Routes in controllers/games.js**
+| Method | Path | Purpose |
+| ------ | -------------- | -------------------- |
+| GET | `/search` | Open search page to look for game via API |
+| POST | `/search` | Route to search API for game |
+| POST | `/choose` | Get data from API on chosen game|
+| POST | `/newGame` | Post API data to game model |
+| GET | `/all` | List of all reviewed games |
+| GET | `/list` | List of games that can be reviewed |
+| GET | `/:id` | Info on chosen game stored in Model |
 
 ## Directions For Use
 
-### 1. Clone the repository, but with different name ####
+### 1. Create account on website ###
+Create an account on the website. Certain fields must be filled in.
 
-```sh
-git clone <repo_link> <new_name>
-```
-**For Example**
+### 2. Search for a game to rate ###
+Search for a game by going to the games list and then rate a game. Then Search for a game.
 
-```sh
-git clone git@github.com/spazevic/Auth_Boiler.git shiny-new-project
-```
-### 2. Install modules from package.json ###
+### 2b Add game to model ###
+If you can't find a game you want on the list displayed, search for a game via the search button on the bottom of the list of reviewed games. Once you've found a game add it to the model.
 
-```sh
-npm i
-```
-### 3. Customize for new project ###
+### 3. Create review ###
+After finding a game click on the game title. Then click the Rate This Game button
 
-Remove the defaulty stuff. For example:
-
-* Title in `layout.ejs`
-* Logo field in the nav bar
-* Description and Repository fields in package.json
-* Remove this boilerplate's readme content
-* Switch Favicon (Logo in tab)
-
-### 4. Create a new database for the new project ###
-
-```sh
-createdb <new_db_name>
-```
-
-### 5. Alter Sequelize Config File ###
-
-In `config/config.json`, update the database name to the one created in step 4. Check other settings, username, password, and dialect.
-
-### 6. Check user model for relevence to new project's needs ###
-
-For example, if new project doesn't need birthday field, delete from user model and user migration files
-
-### 7. Run the sequelize migrations ###
-```sh
-sequelize db:migrate
-```
-
-### 8. Create a file for the enviornment varibles
-
-```sh
-touch .env
-```
-
-Or create in text editor
-
-Include the following .env varibles:
-
-* SESSION_SECRET - the key for the sesion to use
-
-### 9. Run the server and make sure it works ###
-
-```sh
-nodemon or node index.js
-```
-### 10. Delete the old origin that points to the boilerplate repo ###
-
-Currently if we run this command
-
-```sh
-git remote -v 
-```
-
-It will show origin as being hooked up to boilerpalte repo. Need fresh repo still. Delete origin remote.
-
-```sh
-git remote remove origin
-```
-
-### 11. Create an empty git repo ###
-
-Via the Github website follow directions to make new repo
-
-```sh
-git init
-git add .
-git commit -m 'First commit'
-git remote add origin <new_repo link>
-git push origin master
-```
-
-**GGs**
+### 4. After game has been rated you can see what games you have rated ###
