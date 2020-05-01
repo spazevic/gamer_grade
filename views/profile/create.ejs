@@ -8,7 +8,7 @@
 <form class ="col s4" method="POST" action="./create">
 	<input type="hidden" name="gameId" value="<%=game.id%>">
 	<input type="hidden" name="userId" value="<%=user.id%>">
-	<input type="number" name="rating">
+	<input type="number" name="rating" id="rate" max ="10" min="1">
 	<input type="submit" value="Submit That Rating" class = "btn-small">
 </form>
 </div>

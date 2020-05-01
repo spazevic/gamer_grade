@@ -6,7 +6,7 @@
 <form class ="col s4" action="/profile/edit/<%=rating.id%>?_method=PUT" method="POST">
 	<input type="hidden" name="gameId" value="<%=rating.gameId%>">
 	<input type="hidden" name="userId" value="<%=rating.userId%>">
-	<input type="number" name="rating" value="<%=rating.rating%>">
+	<input type="number" name="rating" value="<%=rating.rating%>" max="10" min="1">
 	<input type="submit" value="Put your revised rating" class = "btn-small">
 </form>
 </div>
