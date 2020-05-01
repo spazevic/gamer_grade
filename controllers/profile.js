@@ -22,16 +22,6 @@ router.get('/guest/:id', (req,res) => {
 	})
 })
 
-router.get('/guestReview/:id', (req,res) => {
-	db.user.findByPk(req.params.id)
-	.then(userProfile => {
-		res.render('profile/guestReview', {moment, userProfile})
-	})
-	.catch(err => {
-		res.render('error')
-	})
-})
-
 router.get('/admin', adminLogin, (req,res) => {
 	db.user.findAll()
 	.then(users => {
