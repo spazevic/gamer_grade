@@ -2,10 +2,13 @@
 <h2><%=game.name%></h2>
 
 
-
-<form method="POST" action="./create">
+<div class ="row">
+	<div class="col s4">
+	</div>
+<form class ="col s4" method="POST" action="./create">
 	<input type="hidden" name="gameId" value="<%=game.id%>">
 	<input type="hidden" name="userId" value="<%=user.id%>">
 	<input type="number" name="rating">
 	<input type="submit" value="Submit That Rating" class = "btn-small">
 </form>
+</div>
