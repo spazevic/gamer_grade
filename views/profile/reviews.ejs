@@ -1,11 +1,9 @@
-<h1>Games Reviewed</h1>
-
-<p>Here is a list of games reviewed</p>
+<h1>Games That <%=user.username%> Has Reviewed</h1>
 
 <% ratings.forEach(r => { %>
 	<div class="gamebox">
 	<% if (r.userId == user.id ) { %>
-		<h4><%=r.game.name%></h4>
+		<h4><a href="/games/<%=r.game.id%>"><%=r.game.name%></a></h4>
 		<p class ="rating"><%=r.rating%></p>
 		<a href="./edit/<%=r.id%>">Change</a>
 	<% } %>

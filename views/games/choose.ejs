@@ -1,8 +1,7 @@
-<h1>sup</h1>
+<h1><%=gameData[0].name%></h1>
+<h5><%=dateData[0].human%></h5>
 
-<p><%=gameData[0].name%></p>
 <p><%=gameData[0].summary%></p>
-<p><%=dateData[0].human%></p>
 
 <img href="https://placekitten.com">
 <img src="https:<%=coverData[0].url%>">
@@ -12,5 +11,5 @@
 	<input type="hidden" value="<%=gameData[0].summary%>" name="summary">
 	<input type="hidden" value="<%=dateData[0].human%>" name="release">
 	<input type="hidden" value="<%=coverData[0].url%>" name="cover">
-	<input type="submit">
+	<input type="submit" class="btn-small">
 </form>

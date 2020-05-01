@@ -1,7 +1,7 @@
 <h1>Gamer Grade</h1>
 <h2>The best place to find the coolest games that you can be sure will be worth your time and money</h2>
 
-<h3>Top Games</h3>
+<h3>Top Rated Games</h3>
 
 <%games.forEach(g => { %>
 	<%let rating = 0%>
@@ -10,11 +10,11 @@
 		<%count++%>
 		<%rating+= r.rating%>
 	<%})%>
-	<% if (rating/count > 9) { %>
+	<% if (rating/count > 8.9) { %>
 	<div>
-		<a href="/games/<%=g.id%>"><%=g.name%></a>
+		<h4><a href="/games/<%=g.id%>"><%=g.name%></a></h4>
 	</div>
-	<%=rating/count%>
+	<p class= "rating"><%=rating/count%></p>
 	<% } %>
 <% }) %>
 

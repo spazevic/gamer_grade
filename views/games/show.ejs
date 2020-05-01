@@ -1,17 +1,14 @@
-<form method="GET" action="/games/search">
-	<input type="submit" value="back to search">
-</form>
-
-<form method="POST" action="/games/search">
-	<input type="text" name="name">
-	<input type="submit" value="search more">
-</form>
+<h4>Results found</h4>
 
 <% gameData.forEach(d => { %>
 	<form method="POST" action="/games/choose">
 		<input type="hidden" name="name" value="<%=d.name%>">
-		<button type="submit"><%= d.name %> </button>
+		<button type="submit" class="btn-small"><%= d.name %> </button>
 	</form>
 	<p><%=d.summary%></p>
-
+<hr>
 <% }) %>
+<h4>Couldn't find your game? Try using more specific search words.
+<form method="GET" action="/games/search">
+	<input type="submit" value="Search for Somrthing Else" class="btn-small">
+</form>

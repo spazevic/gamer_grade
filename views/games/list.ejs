@@ -1,21 +1,20 @@
-<h1>hi list</h1>
-
-<h4>Can't find your game? Search here for more and make your own review</h4>
- <a href="/games/search">Search Games</a>
-
-
+<h1>List of Reviewed Games</h1>
 
 <% games.forEach(g => { %>
 	<%let rating = 0%>
 	<%let count= 0%>
 	<form method="GET" action="/profile/create/<%=g.id%>">
-	<a href="/games/<%=g.id%>"><%=g.name %></a>
+	<h5><a href="/games/<%=g.id%>"><%=g.name %></a></h5>
 	<% g.ratings.forEach(r => { %>
 		<%count++%>
 		<%rating+= r.rating%>
 	<%})%>
-	<%=rating/count%>
+	<p class="rating"><%=rating/count%></p>
 	<div></div>
-	<input type="submit" value="create review">
+	<input type="submit" value="create review" class="btn-small">
 </form>
-	<% }) %>
+<% }) %>
+
+
+	<h4>Can't find your game? Search here for more and make your own review</h4>
+ <a href="/games/search">Search Games</a>

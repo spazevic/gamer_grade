@@ -22,9 +22,7 @@ router.post('/search', (req,res) => {
 	})
   .then(response => {
   	let gameData = response.data
-    console.log(response.data[0]);
-   
-
+  
     
     axios({
 	  url: "https://api-v3.igdb.com/release_dates",
@@ -37,7 +35,6 @@ router.post('/search', (req,res) => {
 	  })
     	.then(date => {
     		let dateData = date.data
-    		console.log(dateData[0].human)
     		 res.render('games/show', {gameData, dateData});
     	})
     	.catch(err => {
@@ -92,7 +89,6 @@ router.post('/choose', (req,res) => {
 			  })
 		    	.then(art => {
 		    		let coverData = art.data
-		    		console.log(art.data)
 		    		 res.render('games/choose', {gameData, dateData, coverData});
 		    	})
 		    	.catch(err => {
@@ -152,7 +148,6 @@ router.get('/:id', (req,res) => {
 		include: [db.rating]
 	})
 	.then(game => {
-		console.log(game.ratings[0])
 		res.render('games/gamePage', {game})
 	})
 	.catch(err => {

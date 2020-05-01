@@ -1,18 +1,14 @@
 <h1>List of Games Reviewed</h1>
 
-
-
-
-
 <% games.forEach(g => { %>
 	<%let rating = 0%>
 	<%let count= 0%>
-	<a href="/games/<%=g.id%>"><%=g.name %></a>
+	<h4><a href="/games/<%=g.id%>"><%=g.name %></a></h4>
 	<% g.ratings.forEach(r => { %>
 		<%count++%>
 		<%rating+= r.rating%>
 	<%})%>
-	<%=rating/count%>
+	<p class="rating"><%=rating/count%></p>
 	<div></div>
 
 	<% }) %>
